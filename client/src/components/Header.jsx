@@ -26,12 +26,18 @@ export default function Header() {
 
   const handleSignout = async () => {
     try {
+<<<<<<< HEAD
       const res = await fetch(
         `https://blogging-app-qseh.onrender.com/api/user/signout`,
         {
           method: "POST",
         }
       );
+=======
+      const res = await fetch(`/api/user/signout`, {
+        method: "POST",
+      });
+>>>>>>> newBranch
       const data = await res.json();
       if (!res.ok) {
         console.log(data.message);
@@ -120,6 +126,14 @@ export default function Header() {
         <Navbar.Link active={path === "/about"} as={"div"}>
           <Link to="/about">About</Link>
         </Navbar.Link>
+<<<<<<< HEAD
+=======
+        {currentUser && currentUser.isAdmin && (
+          <Navbar.Link active={path === "/create-post"} as={"div"}>
+            <Link to="/create-post">Post</Link>
+          </Navbar.Link>
+        )}
+>>>>>>> newBranch
       </Navbar.Collapse>
     </Navbar>
   );

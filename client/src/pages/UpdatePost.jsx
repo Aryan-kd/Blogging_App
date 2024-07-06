@@ -28,9 +28,13 @@ export default function UpdatePost() {
   useEffect(() => {
     try {
       const fetchPost = async () => {
+<<<<<<< HEAD
         const res = await fetch(
           `https://blogging-app-qseh.onrender.com/api/post/getposts?postId=${postId}`
         );
+=======
+        const res = await fetch(`/api/post/getposts?postId=${postId}`);
+>>>>>>> newBranch
         const data = await res.json();
         if (!res.ok) {
           console.log(data.message);
@@ -89,7 +93,11 @@ export default function UpdatePost() {
     e.preventDefault();
     try {
       const res = await fetch(
+<<<<<<< HEAD
         `https://blogging-app-qseh.onrender.com/api/post/updatepost/${formData._id}/${currentUser._id}`,
+=======
+        `/api/post/updatepost/${formData._id}/${currentUser._id}`,
+>>>>>>> newBranch
         {
           method: "PUT",
           headers: {

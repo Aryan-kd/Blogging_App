@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import User from '../models/user.model.js';
 import bcryptjs from 'bcryptjs';
 import { errorHandler } from '../utils/error.js';
 import jwt from 'jsonwebtoken';
+=======
+import User from "../models/user.model.js";
+import bcryptjs from "bcryptjs";
+import { errorHandler } from "../utils/error.js";
+import jwt from "jsonwebtoken";
+>>>>>>> newBranch
 
 export const signup = async (req, res, next) => {
   const { username, email, password } = req.body;
@@ -10,11 +17,19 @@ export const signup = async (req, res, next) => {
     !username ||
     !email ||
     !password ||
+<<<<<<< HEAD
     username === '' ||
     email === '' ||
     password === ''
   ) {
     next(errorHandler(400, 'All fields are required'));
+=======
+    username === "" ||
+    email === "" ||
+    password === ""
+  ) {
+    next(errorHandler(400, "All fields are required"));
+>>>>>>> newBranch
   }
 
   const hashedPassword = bcryptjs.hashSync(password, 10);
@@ -27,7 +42,11 @@ export const signup = async (req, res, next) => {
 
   try {
     await newUser.save();
+<<<<<<< HEAD
     res.json('Signup successful');
+=======
+    res.json("Signup successful");
+>>>>>>> newBranch
   } catch (error) {
     next(error);
   }
@@ -36,18 +55,31 @@ export const signup = async (req, res, next) => {
 export const signin = async (req, res, next) => {
   const { email, password } = req.body;
 
+<<<<<<< HEAD
   if (!email || !password || email === '' || password === '') {
     next(errorHandler(400, 'All fields are required'));
+=======
+  if (!email || !password || email === "" || password === "") {
+    next(errorHandler(400, "All fields are required"));
+>>>>>>> newBranch
   }
 
   try {
     const validUser = await User.findOne({ email });
     if (!validUser) {
+<<<<<<< HEAD
       return next(errorHandler(404, 'User not found'));
     }
     const validPassword = bcryptjs.compareSync(password, validUser.password);
     if (!validPassword) {
       return next(errorHandler(400, 'Invalid password'));
+=======
+      return next(errorHandler(404, "User not found"));
+    }
+    const validPassword = bcryptjs.compareSync(password, validUser.password);
+    if (!validPassword) {
+      return next(errorHandler(400, "Invalid password"));
+>>>>>>> newBranch
     }
     const token = jwt.sign(
       { id: validUser._id, isAdmin: validUser.isAdmin },
@@ -58,11 +90,19 @@ export const signin = async (req, res, next) => {
 
     res
       .status(200)
+<<<<<<< HEAD
       .cookie('access_token', token, {
+=======
+      .cookie("access_token", token, {
+>>>>>>> newBranch
         httpOnly: true,
       })
       .json(rest);
   } catch (error) {
+<<<<<<< HEAD
+=======
+    console.log("JWT Error");
+>>>>>>> newBranch
     next(error);
   }
 };
@@ -79,7 +119,11 @@ export const google = async (req, res, next) => {
       const { password, ...rest } = user._doc;
       res
         .status(200)
+<<<<<<< HEAD
         .cookie('access_token', token, {
+=======
+        .cookie("access_token", token, {
+>>>>>>> newBranch
           httpOnly: true,
         })
         .json(rest);
@@ -90,7 +134,11 @@ export const google = async (req, res, next) => {
       const hashedPassword = bcryptjs.hashSync(generatedPassword, 10);
       const newUser = new User({
         username:
+<<<<<<< HEAD
           name.toLowerCase().split(' ').join('') +
+=======
+          name.toLowerCase().split(" ").join("") +
+>>>>>>> newBranch
           Math.random().toString(9).slice(-4),
         email,
         password: hashedPassword,
@@ -104,7 +152,11 @@ export const google = async (req, res, next) => {
       const { password, ...rest } = newUser._doc;
       res
         .status(200)
+<<<<<<< HEAD
         .cookie('access_token', token, {
+=======
+        .cookie("access_token", token, {
+>>>>>>> newBranch
           httpOnly: true,
         })
         .json(rest);

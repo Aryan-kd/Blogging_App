@@ -15,9 +15,13 @@ export default function PostPage() {
     const fetchPost = async () => {
       try {
         setLoading(true);
+<<<<<<< HEAD
         const res = await fetch(
           `https://blogging-app-qseh.onrender.com/api/post/getposts?slug=${postSlug}`
         );
+=======
+        const res = await fetch(`/api/post/getposts?slug=${postSlug}`);
+>>>>>>> newBranch
         const data = await res.json();
         if (!res.ok) {
           setError(true);
@@ -40,9 +44,13 @@ export default function PostPage() {
   useEffect(() => {
     try {
       const fetchRecentPosts = async () => {
+<<<<<<< HEAD
         const res = await fetch(
           `https://blogging-app-qseh.onrender.com/api/post/getposts?limit=3`
         );
+=======
+        const res = await fetch(`/api/post/getposts?limit=3`);
+>>>>>>> newBranch
         const data = await res.json();
         if (res.ok) {
           setRecentPosts(data.posts);

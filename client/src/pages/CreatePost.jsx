@@ -61,6 +61,7 @@ export default function CreatePost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+<<<<<<< HEAD
       const res = await fetch(
         `https://blogging-app-qseh.onrender.com/api/post/create`,
         {
@@ -71,6 +72,15 @@ export default function CreatePost() {
           body: JSON.stringify(formData),
         }
       );
+=======
+      const res = await fetch(`/api/post/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+>>>>>>> newBranch
       const data = await res.json();
       if (!res.ok) {
         setPublishError(data.message);

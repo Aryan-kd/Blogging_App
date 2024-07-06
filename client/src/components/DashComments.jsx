@@ -13,9 +13,13 @@ export default function DashComments() {
   useEffect(() => {
     const fetchComments = async () => {
       try {
+<<<<<<< HEAD
         const res = await fetch(
           `https://blogging-app-qseh.onrender.com/api/comment/getcomments`
         );
+=======
+        const res = await fetch(`/api/comment/getcomments`);
+>>>>>>> newBranch
         const data = await res.json();
         if (res.ok) {
           setComments(data.comments);
