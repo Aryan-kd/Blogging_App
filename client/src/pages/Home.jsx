@@ -7,24 +7,14 @@ export default function Home() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-<<<<<<< HEAD
-      const res = await fetch(
-        `https://blogging-app-qseh.onrender.com/api/post/getPosts`
-      );
-=======
       const res = await fetch(`/api/post/getPosts`);
->>>>>>> newBranch
       const data = await res.json();
       setPosts(data.posts);
     };
     fetchPosts();
-<<<<<<< HEAD
-  }, []);
-=======
     return () => {};
   }, []);
 
->>>>>>> newBranch
   return (
     <div>
       <div className="flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto ">
