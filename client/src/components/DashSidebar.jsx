@@ -27,9 +27,18 @@ export default function DashSidebar() {
   }, [location.search]);
   const handleSignout = async () => {
     try {
+<<<<<<< HEAD
+      const res = await fetch(
+        `https://blogging-app-qseh.onrender.com/api/user/signout`,
+        {
+          method: "POST",
+        }
+      );
+=======
       const res = await fetch(`/api/user/signout`, {
         method: "POST",
       });
+>>>>>>> newBranch
       const data = await res.json();
       if (!res.ok) {
         console.log(data.message);

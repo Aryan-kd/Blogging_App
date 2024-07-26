@@ -31,6 +31,22 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
 
   const handleSave = async () => {
     try {
+<<<<<<< HEAD
+      const res = await fetch(
+        `https://blogging-app-qseh.onrender.com/api/comment/editComment/${comment._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "cache-control": "no-cache",
+          },
+          body: JSON.stringify({
+            content: editedContent,
+          }),
+        }
+      );
+=======
       const res = await fetch(`/api/comment/editComment/${comment._id}`, {
         method: "PUT",
         headers: {
@@ -42,6 +58,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
           content: editedContent,
         }),
       });
+>>>>>>> newBranch
       if (res.ok) {
         setIsEditing(false);
         onEdit(comment, editedContent);

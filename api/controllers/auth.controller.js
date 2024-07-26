@@ -63,7 +63,6 @@ export const signin = async (req, res, next) => {
       })
       .json(rest);
   } catch (error) {
-    console.log("JWT Error");
     next(error);
   }
 };

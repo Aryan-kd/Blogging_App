@@ -19,6 +19,22 @@ export default function CommentSection({ postId }) {
       return;
     }
     try {
+<<<<<<< HEAD
+      const res = await fetch(
+        `https://blogging-app-qseh.onrender.com/api/comment/create`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            content: comment,
+            postId,
+            userId: currentUser._id,
+          }),
+        }
+      );
+=======
       const res = await fetch(`/api/comment/create`, {
         method: "POST",
         headers: {
@@ -30,6 +46,7 @@ export default function CommentSection({ postId }) {
           userId: currentUser._id,
         }),
       });
+>>>>>>> newBranch
       const data = await res.json();
       if (res.ok) {
         setComment("");
@@ -44,7 +61,13 @@ export default function CommentSection({ postId }) {
   useEffect(() => {
     const getComments = async () => {
       try {
+<<<<<<< HEAD
+        const res = await fetch(
+          `https://blogging-app-qseh.onrender.com/api/comment/getPostComments/${postId}`
+        );
+=======
         const res = await fetch(`/api/comment/getPostComments/${postId}`);
+>>>>>>> newBranch
         if (res.ok) {
           const data = await res.json();
           setComments(data);
@@ -62,9 +85,18 @@ export default function CommentSection({ postId }) {
         navigate("/sign-in");
         return;
       }
+<<<<<<< HEAD
+      const res = await fetch(
+        `https://blogging-app-qseh.onrender.com/api/comment/likeComment/${commentId}`,
+        {
+          method: "PUT",
+        }
+      );
+=======
       const res = await fetch(`/api/comment/likeComment/${commentId}`, {
         method: "PUT",
       });
+>>>>>>> newBranch
       if (res.ok) {
         const data = await res.json();
         setComments(
@@ -99,9 +131,18 @@ export default function CommentSection({ postId }) {
         navigate("/sign-in");
         return;
       }
+<<<<<<< HEAD
+      const res = await fetch(
+        `https://blogging-app-qseh.onrender.com/api/comment/deleteComment/${commentId}`,
+        {
+          method: "DELETE",
+        }
+      );
+=======
       const res = await fetch(`/api/comment/deleteComment/${commentId}`, {
         method: "DELETE",
       });
+>>>>>>> newBranch
       if (res.ok) {
         const data = await res.json();
         setComments(comments.filter((comment) => comment._id !== commentId));
